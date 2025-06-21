@@ -1,0 +1,249 @@
+What is your age group?
+
+0–12 (Children)
+
+13–18 (Adolescents)
+
+19–30 (Young Adults)
+
+31+ (Adults & Seniors)
+
+On average, how many hours do you sleep at night?
+
+Less than 4 hours
+
+4–6 hours
+
+6–8 hours
+
+More than 8 hours
+
+How often do you have trouble falling asleep?
+
+Never
+
+Occasionally
+
+Frequently
+
+Always
+
+Do you wake up feeling well-rested?
+
+Always
+
+Often
+
+Sometimes
+
+Never
+
+How often do you feel tired or drowsy during the day?
+
+Never
+
+Rarely
+
+Frequently
+
+Every day
+
+Do you face difficulty concentrating or staying focused during the day?
+
+Never
+
+Occasionally
+
+Often
+
+Always
+
+How often do you feel anxious or nervous?
+
+Never
+
+Sometimes
+
+Often
+
+Always
+
+How would you describe your current emotional state?
+
+Happy and content
+
+Occasionally stressed
+
+Often overwhelmed
+
+Mentally distressed
+
+Have you experienced trauma that continues to disturb your sleep?
+
+No trauma
+
+Yes, but sleep unaffected
+
+Yes, occasionally affects sleep
+
+Yes, frequently affects sleep
+
+Do you often worry excessively about the future or daily tasks before bed?
+
+Never
+
+Occasionally
+
+Frequently
+
+Always
+
+Do you dwell on past events (rumination) before falling asleep?
+
+Never
+
+Occasionally
+
+Frequently
+
+Always
+
+Do you experience chronic worry that keeps your mind active at night?
+
+Never
+
+Occasionally
+
+Frequently
+
+Always
+
+How often do you use mobile or digital devices before sleeping?
+
+Never
+
+Occasionally
+
+Most nights
+
+Every night
+
+How often do you consume caffeinated drinks (tea/coffee/energy drinks) after evening?
+
+Never
+
+Rarely
+
+Frequently
+
+Daily
+
+Do you have someone to talk to when you feel mentally low or stressed?
+
+Always
+
+Most of the time
+
+Sometimes
+
+Never
+
+How would you describe the environment at your home/school/work?
+
+Very supportive
+
+Somewhat supportive
+
+Neutral
+
+Stressful and unsupportive
+
+How often does bright lighting in your room affect your ability to sleep?
+
+Never
+
+Sometimes
+
+Often
+
+Always
+
+How would you rate the noise level in your sleeping environment?
+
+Very quiet
+
+Mostly quiet
+
+Occasionally noisy
+
+Very noisy
+
+How often does your sleeping environment (room temperature, bedding, etc.) feel uncomfortable?
+
+Never
+
+Sometimes
+
+Often
+
+Always
+
+Do you experience any physical pain or discomfort while trying to sleep?
+
+Never
+
+Occasionally
+
+Often
+
+Always
+
+Do you have any medical condition that interferes with your sleep?
+
+No medical condition
+
+Mild condition
+
+Moderate condition
+
+Severe condition
+
+Are you currently taking any medications that may affect your sleep patterns?
+
+No medications
+
+Rarely affect sleep
+
+Sometimes affect sleep
+
+Often affect sleep
+
+Have you been diagnosed with any sleep disorders (e.g., insomnia, apnea)?
+
+No
+
+Possibly
+
+Diagnosed, under control
+
+Diagnosed, affects sleep
+
+Have you experienced any hormonal changes (e.g., puberty, menstruation, menopause) affecting sleep?
+
+No
+
+Slight impact
+
+Moderate impact
+
+Major impact on sleep
+
+Are you diagnosed with any neurological disorder (e.g., Parkinson’s, epilepsy) affecting sleep?
+
+No
+
+Mild condition
+
+Moderate impact
+
+Severe impact on sleep
