@@ -519,57 +519,57 @@ def get_sleep_recommendations(age_group, sleep_score, effectiveness):
         '0–12 (children)': {
             'title': '🧸 Sleep Recommendations for Children (0-12 years)',
             'remedies': [
-                "🛏️ **Consistent Bedtime Routine**: Establish a calming 30-45 minute bedtime routine with activities like reading, gentle music, or quiet storytelling",
-                "📱 **Screen Time Limits**: No screens 1-2 hours before bedtime. Blue light can disrupt melatonin production in developing brains",
-                "🌙 **Optimal Sleep Duration**: Ensure 9-11 hours of sleep for school-age children (6-13 years) and 11-14 hours for preschoolers (3-5 years)",
-                "🍎 **Healthy Sleep Environment**: Keep bedroom cool (65-70°F), dark, and quiet. Consider blackout curtains and white noise machines",
-                "🏃 **Physical Activity**: Encourage regular outdoor play and physical activity during the day, but avoid vigorous exercise 3 hours before bedtime",
-                "🥛 **Nutrition & Hydration**: Avoid caffeine completely. Limit fluids 1 hour before bedtime. Consider a light snack if hungry",
-                "🧘 **Relaxation Techniques**: Teach simple breathing exercises or gentle stretching. Try progressive muscle relaxation for anxious children",
-                "🎵 **Comfort Items**: Allow comfort objects like stuffed animals or soft blankets that provide security and comfort"
+                "🛏️ Consistent Bedtime Routine: Establish a calming 30-45 minute bedtime routine with activities like reading, gentle music, or quiet storytelling",
+                "📱 Screen Time Limits: No screens 1-2 hours before bedtime. Blue light can disrupt melatonin production in developing brains",
+                "🌙 Optimal Sleep Duration: Ensure 9-11 hours of sleep for school-age children (6-13 years) and 11-14 hours for preschoolers (3-5 years)",
+                "🍎 Healthy Sleep Environment: Keep bedroom cool (65-70°F), dark, and quiet. Consider blackout curtains and white noise machines",
+                "🏃 Physical Activity: Encourage regular outdoor play and physical activity during the day, but avoid vigorous exercise 3 hours before bedtime",
+                "🥛 Nutrition & Hydration: Avoid caffeine completely. Limit fluids 1 hour before bedtime. Consider a light snack if hungry",
+                "🧘 Relaxation Techniques: Teach simple breathing exercises or gentle stretching. Try progressive muscle relaxation for anxious children",
+                "🎵 Comfort Items: Allow comfort objects like stuffed animals or soft blankets that provide security and comfort"
             ]
         },
         
         '13–18 (adolescents)': {
             'title': '🎓 Sleep Recommendations for Adolescents (13-18 years)',
             'remedies': [
-                "⏰ **Circadian Rhythm Support**: Understand that teen brains naturally shift to later sleep times. Aim for 8-10 hours of sleep with consistent sleep-wake times",
-                "📚 **Study Schedule Management**: Create a study schedule that doesn't require late-night cramming. Use active study techniques during peak alertness hours",
-                "📱 **Digital Wellness**: Use blue light filters on devices after sunset. Create a charging station outside the bedroom for phones and tablets",
-                "🏋️ **Exercise Timing**: Regular exercise is crucial but avoid intense workouts 4 hours before bedtime. Morning or afternoon exercise is ideal",
-                "☕ **Caffeine Awareness**: Limit caffeine intake, especially after 2 PM. Be aware of hidden caffeine in sodas, energy drinks, and chocolate",
-                "🧠 **Stress Management**: Practice stress-reduction techniques like journaling, meditation apps, or talking with trusted adults about daily pressures",
-                "🛏️ **Sleep Environment**: Create a teen-friendly sleep sanctuary with comfortable bedding, appropriate temperature, and minimal light pollution",
-                "👥 **Social Balance**: Balance social activities with sleep needs. Educate about the importance of sleep for academic performance and emotional regulation"
+                "⏰ Circadian Rhythm Support: Understand that teen brains naturally shift to later sleep times. Aim for 8-10 hours of sleep with consistent sleep-wake times",
+                "📚 Study Schedule Management: Create a study schedule that doesn't require late-night cramming. Use active study techniques during peak alertness hours",
+                "📱 Digital Wellness: Use blue light filters on devices after sunset. Create a charging station outside the bedroom for phones and tablets",
+                "🏋️ Exercise Timing: Regular exercise is crucial but avoid intense workouts 4 hours before bedtime. Morning or afternoon exercise is ideal",
+                "☕ Caffeine Awareness: Limit caffeine intake, especially after 2 PM. Be aware of hidden caffeine in sodas, energy drinks, and chocolate",
+                "🧠 Stress Management: Practice stress-reduction techniques like journaling, meditation apps, or talking with trusted adults about daily pressures",
+                "🛏️ Sleep Environment: Create a teen-friendly sleep sanctuary with comfortable bedding, appropriate temperature, and minimal light pollution",
+                "👥 Social Balance: Balance social activities with sleep needs. Educate about the importance of sleep for academic performance and emotional regulation"
             ]
         },
         
         '19–30 (young adults)': {
             'title': '🌟 Sleep Recommendations for Young Adults (19-30 years)',
             'remedies': [
-                "⚖️ **Work-Life Balance**: Establish clear boundaries between work/study and personal time. Avoid checking emails or work-related content before bed",
-                "🍷 **Substance Awareness**: Limit alcohol consumption, especially 3 hours before bedtime. Alcohol disrupts REM sleep and sleep quality",
-                "💪 **Regular Exercise Routine**: Aim for 150 minutes of moderate exercise weekly. Morning workouts can help regulate circadian rhythms",
-                "🧘 **Mindfulness & Meditation**: Practice mindfulness meditation, progressive muscle relaxation, or use guided sleep meditation apps",
-                "📅 **Consistent Schedule**: Maintain regular sleep-wake times even on weekends. Avoid 'social jet lag' from irregular weekend sleep patterns",
-                "🌡️ **Sleep Environment Optimization**: Invest in quality mattress and pillows. Keep bedroom temperature between 60-67°F for optimal sleep",
-                "🍽️ **Nutrition Timing**: Avoid large meals 3 hours before bedtime. If hungry, opt for light snacks with tryptophan (turkey, milk, bananas)",
-                "💼 **Financial Stress Management**: Address financial anxieties through budgeting, financial planning, or seeking counseling to reduce bedtime worry"
+                "⚖️ Work-Life Balance: Establish clear boundaries between work/study and personal time. Avoid checking emails or work-related content before bed",
+                "🍷 Substance Awareness: Limit alcohol consumption, especially 3 hours before bedtime. Alcohol disrupts REM sleep and sleep quality",
+                "💪 Regular Exercise Routine: Aim for 150 minutes of moderate exercise weekly. Morning workouts can help regulate circadian rhythms",
+                "🧘 Mindfulness & Meditation: Practice mindfulness meditation, progressive muscle relaxation, or use guided sleep meditation apps",
+                "📅 Consistent Schedule: Maintain regular sleep-wake times even on weekends. Avoid 'social jet lag' from irregular weekend sleep patterns",
+                "🌡️ Sleep Environment Optimization: Invest in quality mattress and pillows. Keep bedroom temperature between 60-67°F for optimal sleep",
+                "🍽️ Nutrition Timing: Avoid large meals 3 hours before bedtime. If hungry, opt for light snacks with tryptophan (turkey, milk, bananas)",
+                "💼 Financial Stress Management: Address financial anxieties through budgeting, financial planning, or seeking counseling to reduce bedtime worry"
             ]
         },
         
         '31+ (adults & seniors)': {
             'title': '🏡 Sleep Recommendations for Adults & Seniors (31+ years)',
             'remedies': [
-                "🏥 **Medical Evaluation**: Regular check-ups to identify and treat sleep disorders, sleep apnea, or other medical conditions affecting sleep",
-                "💊 **Medication Review**: Consult healthcare providers about medications that might affect sleep. Some medications can cause insomnia or drowsiness",
-                "🧘 **Relaxation Practices**: Incorporate relaxation techniques like deep breathing, gentle yoga, or tai chi to manage stress and prepare for sleep",
-                "🌿 **Natural Sleep Aids**: Consider natural options like chamomile tea, valerian root, or melatonin supplements (consult healthcare provider first)",
-                "📖 **Sleep Hygiene Education**: Understand age-related sleep changes. Older adults may need less sleep (7-8 hours) but should maintain quality",
-                "🏃 **Age-Appropriate Exercise**: Regular, moderate exercise like walking, swimming, or gentle stretching. Avoid vigorous exercise close to bedtime",
-                "🍽️ **Dietary Considerations**: Limit spicy foods, large meals, and excessive fluids before bedtime. Consider foods rich in magnesium and calcium",
-                "🧠 **Cognitive Health**: Engage in mentally stimulating activities during the day. Address anxiety, depression, or chronic pain that may affect sleep",
-                "🛏️ **Comfort Optimization**: Ensure mattress and pillows provide adequate support for joints and spine. Consider memory foam or adjustable beds if needed"
+                "🏥 Medical Evaluation: Regular check-ups to identify and treat sleep disorders, sleep apnea, or other medical conditions affecting sleep",
+                "💊 Medication Review: Consult healthcare providers about medications that might affect sleep. Some medications can cause insomnia or drowsiness",
+                "🧘 Relaxation Practices: Incorporate relaxation techniques like deep breathing, gentle yoga, or tai chi to manage stress and prepare for sleep",
+                "🌿 Natural Sleep Aids: Consider natural options like chamomile tea, valerian root, or melatonin supplements (consult healthcare provider first)",
+                "📖 Sleep Hygiene Education: Understand age-related sleep changes. Older adults may need less sleep (7-8 hours) but should maintain quality",
+                "🏃 Age-Appropriate Exercise: Regular, moderate exercise like walking, swimming, or gentle stretching. Avoid vigorous exercise close to bedtime",
+                "🍽️ Dietary Considerations: Limit spicy foods, large meals, and excessive fluids before bedtime. Consider foods rich in magnesium and calcium",
+                "🧠 Cognitive Health: Engage in mentally stimulating activities during the day. Address anxiety, depression, or chronic pain that may affect sleep",
+                "🛏️ Comfort Optimization: Ensure mattress and pillows provide adequate support for joints and spine. Consider memory foam or adjustable beds if needed"
             ]
         }
     }
@@ -586,13 +586,13 @@ def get_sleep_recommendations(age_group, sleep_score, effectiveness):
     
     # Add effectiveness context
     if effectiveness < 50:
-        output += f"🚨 **Priority Level: HIGH** - Your sleep effectiveness is {effectiveness:.1f}%\n"
+        output += f"🚨 Priority Level: HIGH - Your sleep effectiveness is {effectiveness:.1f}%\n"
         output += "Focus on implementing 3-4 of these recommendations immediately:\n\n"
     elif effectiveness < 75:
-        output += f"⚠️ **Priority Level: MODERATE** - Your sleep effectiveness is {effectiveness:.1f}%\n"
+        output += f"⚠️ Priority Level: MODERATE - Your sleep effectiveness is {effectiveness:.1f}%\n"
         output += "Consider implementing 2-3 of these recommendations to improve your sleep:\n\n"
     else:
-        output += f"✅ **Priority Level: MAINTENANCE** - Your sleep effectiveness is {effectiveness:.1f}%\n"
+        output += f"✅ Priority Level: MAINTENANCE - Your sleep effectiveness is {effectiveness:.1f}%\n"
         output += "Great job! Use these recommendations to maintain and optimize your sleep:\n\n"
     
     # Add all recommendations
@@ -600,7 +600,7 @@ def get_sleep_recommendations(age_group, sleep_score, effectiveness):
         output += f"{i}. {remedy}\n\n"
     
     # Add general tips
-    output += "💡 **General Tips:**\n"
+    output += "💡 General Tips:\n"
     output += "• Start with 1-2 recommendations and gradually incorporate more\n"
     output += "• Track your sleep improvements over 2-3 weeks\n"
     output += "• Consult healthcare providers for persistent sleep issues\n"

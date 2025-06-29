@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import StarryBackground from '../components/StarryBackground';
+import EnhancedRecommendations from '../components/EnhancedRecommendations';
 
 const Dashboard = () => {
   const [quizHistory, setQuizHistory] = useState([]);
@@ -63,6 +64,7 @@ const Dashboard = () => {
   return (
     <div className="min-h-screen relative">
       <StarryBackground />
+      
       <div className="relative z-10 min-h-screen py-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-6xl mx-auto">
           <div className="bg-white/10 backdrop-blur-lg rounded-2xl p-8 shadow-xl">
@@ -108,15 +110,12 @@ const Dashboard = () => {
                   </div>
                 </div>
 
-                {/* Recommendations */}
-                <div className="bg-white/5 rounded-xl p-6">
-                  <h3 className="text-xl font-semibold text-white mb-4">Personalized Recommendations</h3>
-                  <div className="prose prose-invert max-w-none">
-                    <pre className="whitespace-pre-wrap text-sm text-gray-300 font-mono bg-black/20 p-4 rounded-lg overflow-x-auto">
-                      {latestResult.recommendations}
-                    </pre>
-                  </div>
-                </div>
+                {/* Enhanced Recommendations - Using the new component */}
+                <EnhancedRecommendations 
+                  recommendations={latestResult.recommendations}
+                  sleepScore={latestResult.sleep_score}
+                  effectiveness={latestResult.effectiveness_percentage}
+                />
 
                 <div className="text-center">
                   <button
@@ -166,4 +165,4 @@ const Dashboard = () => {
   );
 };
 
-export default Dashboard; 
+export default Dashboard;
