@@ -47,6 +47,16 @@ const Signup = () => {
   return (
     <div className="min-h-screen relative">
       <StarryBackground />
+      {/* Back button */}
+      <div style={{ position: 'absolute', top: 24, left: 24, zIndex: 20 }}>
+        <button
+          onClick={() => navigate('/')}
+          className="flex items-center gap-2 px-4 py-2 rounded-lg bg-white/80 dark:bg-gray-900/80 shadow hover:bg-white/90 dark:hover:bg-gray-800/90 border border-gray-200 dark:border-gray-700 text-gray-900 dark:text-gray-100 transition"
+        >
+          <svg width="20" height="20" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" /></svg>
+          Back
+        </button>
+      </div>
       <div className="min-h-screen flex items-center justify-center px-4">
         <div className="max-w-md w-full bg-white/10 backdrop-blur-lg rounded-2xl shadow-xl p-8 border border-white/20">
           <h2 className="text-3xl font-bold text-center text-white mb-8">Create Your Account</h2>

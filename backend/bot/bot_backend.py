@@ -145,7 +145,7 @@ def chat(user_input: str) -> str:
         
     except Exception as e:
         print(f"Error generating response: {e}")
-        return "Sorry, I'm having trouble. Please try again."
+        return "Sorry, I'm having trouble. Make sure, your model is running."
 
 # Initialize conversation history on module load
 load_conversation_history()

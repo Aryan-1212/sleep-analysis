@@ -31,6 +31,14 @@ const RecommendationCards = ({ recommendations }) => {
         title = words.slice(0, 3).join(' ').replace(/[^\w\s-()]/g, '').trim();
         description = firstLine;
       }
+      // If the title is empty or generic, try to extract a better one from the description
+      if (!title || title.toLowerCase() === 'sleep tip') {
+        // Try to use the first sentence or phrase as the title
+        const descSentences = description.split(/[.!?]/);
+        if (descSentences[0].length > 0) {
+          title = descSentences[0].slice(0, 40) + (descSentences[0].length > 40 ? '...' : '');
+        }
+      }
       
       return {
         title: title || 'Sleep Tip',
