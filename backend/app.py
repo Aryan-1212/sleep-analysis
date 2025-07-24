@@ -9,11 +9,14 @@ from flask_sqlalchemy import SQLAlchemy
 from werkzeug.security import generate_password_hash, check_password_hash
 import json
 from datetime import datetime
+from bot.bot import bot_bp
 
 warnings.filterwarnings('ignore')
 
 app = Flask(__name__)
 CORS(app)  # Enable CORS for all routes
+
+app.register_blueprint(bot_bp)
 
 # --- Database Configuration ---
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + os.path.join(os.path.dirname(__file__), 'database.db')

@@ -1,0 +1,888 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded" rel="stylesheet">
+
+    <title>MedBot - Medical Assistant</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Poppins", sans-serif;
+        }
+
+        ::-webkit-scrollbar{
+            display: none;
+        }
+
+
+        /* Yellow Color */
+        /* #fbac1b */
+
+        /* Blue Color */
+        /* #052963 */
+
+
+
+        :root {
+            /* Dark mode colors */
+            --text-color: #E3E3E3;
+            /* --subheading-color: #828282; */
+            /* --logo-color: #052963; */
+            --logo-color: #6f1d1b;
+            /* --subheading-color: #fbac1b; */
+            --subheading-color: #ffe6a7;
+            --placeholder-color: #A6A6A6;
+            --primary-color: #242424;
+            --secondary-color: #383838;
+            --secondary-hover-color: #444;
+            --opacity: 0.15;
+        }
+
+        .light_mode {
+            /* Light mode colors */
+            --text-color: #000000;
+            /* --subheading-color: #052963; */
+            --subheading-color: #6f1d1b;
+            /* --logo-color: #fbac1b; */
+            --logo-color: #ffe6a7;
+            /* --subheading-color: #A0A0A0; */
+            --placeholder-color: #6C6C6C;
+            --primary-color: #FFF;
+            --secondary-color: #d1d9e6;
+            --secondary-hover-color: #DBE1EA;
+            --opacity: 0.5;
+        }
+
+        body {
+            background: var(--primary-color);
+
+        }
+
+        .header,
+        .chat-list .message,
+        .typing-form {
+            margin: 0 auto;
+            max-width: 980px;
+            position: relative;
+        }
+
+        .header-div {
+            /* background-color: red; */
+            align-items: center;
+            justify-content: space-between;
+            display: flex;
+        }
+
+        .header {
+            margin-top: 6vh;
+            padding: 1rem;
+            overflow-x: hidden;
+        }
+
+        body.hide-header .header {
+            margin: 0;
+            display: none;
+        }
+
+        .bg-image {
+            display: none;
+        }
+
+        body.hide-header .bg-image {
+
+            top: -50px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            width: 100%;
+            position: fixed;
+            z-index: -1;
+        }
+
+        body.hide-header .bg-image .logo {
+            opacity: var(--opacity);
+            /* filter: invert(70%); */
+        }
+
+        .header :where(.title, .subtitle) {
+            color: var(--text-color);
+            font-weight: 500;
+            line-height: 4rem;
+        }
+
+        .header .title {
+            width: fit-content;
+            font-size: 3rem;
+            background-clip: text;
+            background: linear-gradient(to top, #6f1d1b, #ffe6a7);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .header .subtitle {
+            background-clip: text;
+            font-size: 2.2rem;
+            color: var(--subheading-color);
+        }
+
+        .suggestion-list {
+            width: 100%;
+            list-style: none;
+            display: flex;
+            gap: 1.25rem;
+            margin-top: 9.5vh;
+            overflow: hidden;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            scrollbar-width: none;
+        }
+
+        .suggestion-list .suggestion {
+            cursor: pointer;
+            padding: 1.25rem;
+            width: 222px;
+            flex-shrink: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            border-radius: 0.75rem;
+            justify-content: space-between;
+            background: var(--secondary-color);
+            transition: 0.2s ease;
+        }
+
+        .suggestion-list .suggestion:hover {
+            background: var(--secondary-hover-color);
+        }
+
+        .suggestion-list .suggestion :where(.text, .icon) {
+            font-weight: 400;
+            color: var(--text-color);
+        }
+
+        .suggestion-list .suggestion .icon {
+            width: 42px;
+            height: 42px;
+            display: flex;
+            font-size: 1.3rem;
+            margin-top: 2.5rem;
+            align-self: flex-end;
+            align-items: center;
+            border-radius: 50%;
+            justify-content: center;
+            /* color: var(--text-color); */
+            color: var(--logo-color);
+            /* background: var(--primary-color); */
+            background: var(--subheading-color);
+        }
+
+        .chat-list {
+            z-index: 3;
+            padding: 2rem 1rem 12rem;
+            max-height: 100vh;
+            overflow-y: auto;
+            scrollbar-color: #999 transparent;
+        }
+
+        .chat-list .message.incoming {
+            margin-top: 1.5rem;
+        }
+
+        .chat-list .message .message-content {
+            display: flex;
+            gap: 1.5rem;
+            width: 100%;
+            align-items: center;
+        }
+
+        .chat-list .message .text {
+            color: var(--text-color);
+            white-space: pre-wrap;
+        }
+
+        .chat-list .message.error .text {
+            color: #e55865;
+        }
+
+        /* .chat-list .message.loading .text {
+            display: none;
+        } */
+
+        .chat-list .message .avatar {
+            width: 40px;
+            height: 40px;
+            display: flex;
+            color: var(--subheading-color);
+            font-size: xx-large;
+            justify-content: center;
+            align-items: center;
+            object-fit: cover;
+            border-radius: 50%;
+            align-self: flex-start;
+        }
+
+        @keyframes rotate {
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        .chat-list .message .icon {
+            color: var(--text-color);
+            cursor: pointer;
+            height: 35px;
+            width: 35px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: none;
+            font-size: 1.25rem;
+            margin-left: 3.5rem;
+            visibility: hidden;
+        }
+
+        .chat-list .message .icon.hide {
+            visibility: visible;
+        }
+
+        .chat-list .message:not(.loading, .error) .icon:not(.hide) {
+            visibility: visible;
+        }
+
+        .chat-list .message .icon:hover {
+            background: var(--secondary-hover-color);
+        }
+
+        .chat-list .message .loading-indicator {
+            display: none;
+            gap: 0.8rem;
+            width: 100%;
+            flex-direction: column;
+        }
+
+        .chat-list .message.loading .loading-indicator {
+            display: flex;
+        }
+
+        /* .chat-list .message .loading-indicator .loading-bar {
+  height: 11px;
+  width: 100%;
+  border-radius: 0.135rem;
+  background-position: -800px 0;
+  background: linear-gradient(to right, var(--subheading-color), var(--logo-color), var(--subheading-color));
+  animation: loading 3s linear infinite;
+}
+
+.chat-list .message .loading-indicator .loading-bar:last-child {
+  width: 70%;
+}
+
+@keyframes loading {
+  0% {
+    background-position: -800px 0;
+  }
+
+  100% {
+    background-position: 800px 0;
+  }
+} */
+
+
+
+        .chat-list .message .loading-indicator .loading-bar {
+            height: 11px;
+            width: 100%;
+            border-radius: 0.135rem;
+            background-color: var(--subheading-color);
+            background-image: linear-gradient(to right, var(--subheading-color) 0%, var(--logo-color) 50%, var(--subheading-color) 100%);
+            background-size: 200% 100%;
+            animation: pulseLoading 1.5s ease-in-out infinite;
+        }
+
+        @keyframes pulseLoading {
+            0% {
+                background-position: 200% 0;
+            }
+
+            50% {
+                background-position: 0% 0;
+            }
+
+            100% {
+                background-position: 200% 0;
+            }
+        }
+
+        .typing-area {
+            position: fixed;
+            width: 100%;
+            left: 0;
+            bottom: 0;
+            padding: 1rem;
+            background: var(--primary-color);
+        }
+
+        .typing-area :where(.typing-form, .action-buttons) {
+            display: flex;
+            gap: 0.75rem;
+        }
+
+        .typing-form .input-wrapper {
+            width: 100%;
+            height: 56px;
+            display: flex;
+            position: relative;
+        }
+
+        .typing-form .typing-input {
+            height: 100%;
+            width: 100%;
+            border: none;
+            outline: none;
+            resize: none;
+            font-size: 1rem;
+            color: var(--text-color);
+            padding: 1.1rem 4rem 1.1rem 1.5rem;
+            border-radius: 100px;
+            background: var(--secondary-color);
+        }
+
+        .typing-form .typing-input:focus {
+            background: var(--secondary-hover-color);
+        }
+
+        .typing-form .typing-input::placeholder {
+            color: var(--placeholder-color);
+        }
+
+        .typing-area .icon {
+            width: 56px;
+            height: 56px;
+            flex-shrink: 0;
+            cursor: pointer;
+            border-radius: 50%;
+            display: flex;
+            font-size: 1.4rem;
+            color: var(--text-color);
+            align-items: center;
+            justify-content: center;
+            background: var(--secondary-color);
+            transition: 0.2s ease;
+        }
+
+        .typing-area .icon:hover {
+            background: var(--secondary-hover-color);
+        }
+
+        .typing-form #send-message-button {
+            position: absolute;
+            right: 0;
+            outline: none;
+            border: none;
+            transform: scale(0);
+            background: transparent;
+            transition: transform 0.2s ease;
+        }
+
+        .typing-form .typing-input:valid~#send-message-button {
+            transform: scale(1);
+        }
+
+        .typing-area .disclaimer-text {
+            text-align: center;
+            font-size: 0.85rem;
+            margin-top: 1rem;
+            color: var(--placeholder-color);
+        }
+
+
+        .lang-copy {
+            display: flex;
+            position: absolute;
+            right: 0;
+            align-items: center;
+        }
+
+        .drop-down {
+            background-color: var(--primary-color);
+            max-height: 120px;
+            overflow-y: auto;
+            padding: 5px;
+            color: var(--text-color);
+            padding: 5px;
+        }
+
+        .drop-down option {
+            padding: 5px;
+        }
+
+        .custom-button {
+    font-size: 1.875rem; /* equivalent to 'text-3lg' */
+    font-weight: 600; /* equivalent to 'font-semibold' */
+    letter-spacing: 0.125em; /* equivalent to 'tracking-widest' */
+    color: var(--text-color); /* equivalent to 'text-gray-900' */
+    text-transform: uppercase; /* equivalent to 'uppercase' */
+    border-radius: 0.5rem; /* equivalent to 'rounded-lg' */
+    outline: none; /* equivalent to 'focus:outline-none' */
+}
+
+        @media (max-width: 768px) {
+            .header :is(.title, .subtitle) {
+                font-size: 2rem;
+                line-height: 2.6rem;
+            }
+
+            .header .subtitle {
+                font-size: 1.7rem;
+            }
+
+            .typing-area :where(.typing-form, .action-buttons) {
+                gap: 0.4rem;
+            }
+
+            .typing-form .input-wrapper {
+                height: 50px;
+            }
+
+            .typing-form .typing-input {
+                padding: 1.1rem 3.5rem 1.1rem 1.2rem;
+            }
+
+            .typing-area .icon {
+                height: 50px;
+                width: 50px;
+            }
+
+            .typing-area .disclaimer-text {
+                font-size: 0.75rem;
+                margin-top: 0.5rem;
+            }
+        }
+
+        .message-text-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 0.5rem;
+}
+
+.original-text, .translated-text {
+    width: 100%;
+    word-wrap: break-word;
+    line-height: 1.5;
+}
+
+.translated-text {
+    margin-left: 0;
+    color: var(--subheading-color);
+    font-style: italic;
+    padding-top: 0.5rem;
+    border-top: 1px solid var(--secondary-color);
+}
+
+.translation-loader-container {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+    padding-top: 0.5rem;
+    border-top: 1px solid var(--secondary-color);
+}
+
+.drop-down option:disabled {
+    color: var(--placeholder-color);
+    font-style: italic;
+}
+
+
+
+        .loader {
+            border: 4px solid #f3f3f3;
+            border-top: 4px solid #fbac1b;
+            border-radius: 50%;
+            width: 24px;
+            height: 24px;
+            animation: spin 1s linear infinite;
+            display: inline-block;
+            vertical-align: middle;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg);}
+            100% { transform: rotate(360deg);}
+        }
+    </style>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body id="body">
+    <header class="header">
+        <div class="header-div">
+            <div>
+                <h1 class="title">MedBot</h1>
+                <p class="subtitle">How can I help you?</p>
+            </div>
+            <div>
+                <!-- <img src="{{url_for('static', filename='logo.png')}}" height="200px" width="200px" alt=""> -->
+                <!-- <a
+                href="#"
+                class="custom-button"
+                >MedBot</a
+              > -->
+
+            </div>
+        </div>
+
+        <ul class="suggestion-list">
+            <li class="suggestion">
+                <h4 class="text">I can't sleep properly at night. What can I do?</h4>
+                <span class="icon material-symbols-rounded">nights_stay</span>
+            </li>
+            <li class="suggestion">
+                <h4 class="text">How many hours of sleep are ideal for adults?</h4>
+                <span class="icon material-symbols-rounded">schedule</span>
+            </li>
+            <li class="suggestion">
+                <h4 class="text">What are some tips for better sleep hygiene?</h4>
+                <span class="icon material-symbols-rounded">self_improvement</span>
+            </li>
+            <li class="suggestion">
+                <h4 class="text">Can afternoon naps affect nighttime sleep?</h4>
+                <span class="icon material-symbols-rounded">hotel</span>
+            </li>
+        </ul>
+    </header>
+
+    <div class="bg-image"><img src="logo.png" height="80%" class="logo" alt=""></div>
+    <div class="chat-list" id="chatbox"></div>
+
+    <div class="typing-area">
+        <form id="chatForm" action="#" class="typing-form">
+            <div class="input-wrapper">
+                <input type="text" id="user_input" placeholder="Write Something" class="typing-input" required />
+                <button type="submit" id="send-message-button" class="icon material-symbols-rounded">message
+                </button>
+            </div>
+            <div id="loading"></div>
+            <div class="action-buttons">
+                <span id="theme-toggle-button" class="icon material-symbols-rounded">light_mode</span>
+                <span id="delete-chat-button" class="icon material-symbols-rounded">delete_sweep</span>
+            </div>
+        </form>
+        <p class="disclaimer-text">
+            While the chatbot provides helpful information, always verify details for accuracy.
+        </p>
+    </div>
+
+
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.1/socket.io.min.js"></script>
+
+    <script>
+        const socket = io();
+        const chatContainer = document.querySelector(".chat-list");
+        const form = document.getElementById("chatForm");
+        const suggestions = document.querySelectorAll(".suggestion");
+        const toggleThemeButton = document.querySelector("#theme-toggle-button");
+        const deleteChatButton = document.querySelector("#delete-chat-button");
+
+        let userMessage = null;
+        let isResponseGenerating = false;
+        let id = null;
+
+
+
+        document.addEventListener("DOMContentLoaded", function () {
+            // Select all suggestion items
+            const suggestionItems = document.querySelectorAll('.suggestion');
+
+            // Loop through each suggestion item and add a click event listener
+            suggestionItems.forEach(function (item) {
+                item.addEventListener('click', function () {
+                    // Add 'hide-header' class to body to hide the header and suggestions
+                    document.body.classList.add('hide-header');
+
+                    // Add 'show' class to the chatbox to display it
+                    document.querySelector('.chatbox').classList.add('show');
+
+                    // Get the suggestion text
+                    const suggestionText = this.textContent;
+
+                    // Send the suggestion to the bot and display it in the chatbox
+                    const chatbox = document.getElementById("chatbox");
+                    const id = Date.now();
+
+                    chatbox.innerHTML += `<p class="user"><strong>You:</strong> ${suggestionText}</p>`;
+                    socket.emit('send_message', { message: suggestionText });
+
+                    // Display loading message
+                    const loading = document.getElementById("loading");
+                    loading.style.display = 'block';
+
+                    // Receive the bot's response
+                    socket.on('bot_response', function (data) {
+                        chatbox.innerHTML += `<p class="bot"><strong id=${id}></strong></p>`;
+                        chatbox.scrollTop = chatbox.scrollHeight;
+                        loading.style.display = 'none';
+                        // Update bot response text
+                        // document.getElementById(id).innerHTML = data.data;
+                    });
+                });
+            });
+        });
+
+
+
+
+        function speak(text) {
+            const utterance = new SpeechSynthesisUtterance(text);
+            utterance.lang = 'en-US';
+            window.speechSynthesis.speak(utterance);
+        }
+
+        const createMessageElement = (content, ...classes) => {
+            const div = document.createElement("div");
+            div.classList.add("message", ...classes);
+            div.innerHTML = content;
+            return div;
+        }
+
+        const showTypingEffect = (text, textElement, incomingMessageDiv) => {
+    const words = text.split(' ');
+    let currentWordIndex = 0;
+
+    // Ensure text element has proper structure for translations
+    if (!textElement.classList.contains('original-text')) {
+        textElement.className = 'text original-text';
+        const container = document.createElement('div');
+        container.className = 'message-text-container';
+        textElement.parentNode.insertBefore(container, textElement);
+        container.appendChild(textElement);
+    }
+
+    const typingInterval = setInterval(() => {
+        textElement.innerText += (currentWordIndex === 0 ? '' : ' ') + words[currentWordIndex++];
+        incomingMessageDiv.querySelector(".icon").classList.add("hide");
+
+        if (currentWordIndex === words.length) {
+            clearInterval(typingInterval);
+            isResponseGenerating = false;
+            incomingMessageDiv.querySelector(".icon").classList.remove("hide");
+        }
+        chatContainer.scrollTo(0, chatContainer.scrollHeight);
+    }, 75);
+}
+
+        const showLoadingAnimation = () => {
+            const html = `<div class="message-content">
+                <span class="avatar material-symbols-rounded">smart_toy</span>
+                <p class="text" id="${id}"></p>
+                <div class="loading-indicator">
+                    <div class="loading-bar"></div>
+                    <div class="loading-bar"></div>
+                    <div class="loading-bar"></div>
+                </div>
+            </div>
+            <span onClick="copyMessage(event)" ref=${id} class="icon material-symbols-rounded">content_copy</span>`;
+
+            const incomingMessageDiv = createMessageElement(html, "incoming", "loading");
+            chatContainer.appendChild(incomingMessageDiv);
+
+            chatContainer.scrollTo(0, chatContainer.scrollHeight);
+        }
+
+        form.addEventListener("submit", function (e) {
+            e.preventDefault();
+            id = Date.now();
+            userMessage = form.querySelector(".typing-input").value.trim() || userMessage;
+            if (!userMessage || isResponseGenerating) return;
+
+            isResponseGenerating = true;
+
+            const outgoingHtml = `<div class="message-content">
+                <span class="avatar material-symbols-rounded">person</span>
+                <p class="text"></p>
+                <div class="lang-copy">
+                <select class="drop-down" id="languageSelect" ref=${id} onChange="langSelect(event)">
+    <option value="" disabled selected>English</option>
+    <option value="hi">Hindi</option>
+    <option value="bn">Bengali</option>
+    <option value="te">Telugu</option>
+    <option value="mr">Marathi</option>
+    <option value="ta">Tamil</option>
+    <option value="gu">Gujarati</option>
+    <option value="kn">Kannada</option>
+    <option value="ml">Malayalam</option>
+    <option value="pa">Punjabi</option>
+    <option value="or">Odia</option>
+    <option value="as">Assamese</option>
+    <option value="ur">Urdu</option>
+    <option value="ne">Nepali</option>
+</select>
+                <span onClick="copyMessage(event)" ref=${id} class="icon material-symbols-rounded">content_copy</span>
+                </div>
+            </div>`;
+
+            const outgoingMessageDiv = createMessageElement(outgoingHtml, "outgoing");
+            outgoingMessageDiv.querySelector(".text").innerText = userMessage;
+            chatContainer.appendChild(outgoingMessageDiv);
+
+            socket.emit('send_message', { message: userMessage });
+            showLoadingAnimation();
+
+            form.reset();
+            document.body.classList.add("hide-header");
+            chatContainer.scrollTo(0, chatContainer.scrollHeight);
+
+            socket.on('bot_response', function (data) {
+                const incomingMessageDiv = document.getElementById(id).closest(".incoming");
+                incomingMessageDiv.querySelector(".loading-indicator").remove();
+                showTypingEffect(data.data, incomingMessageDiv.querySelector(".text"), incomingMessageDiv);
+
+                socket.on('variable_update', function (data) {
+                    document.getElementById(id).innerHTML = data.data;
+                });
+            });
+
+        });
+
+
+        // socket.on('variable_update', function handleVariableUpdate(data) {
+        //     const incomingMessageDiv = document.getElementById(id).closest(".message-content");
+
+        //     // Update the text content with the received data
+        //     incomingMessageDiv.querySelector(".text").innerHTML = data.data;
+        //     console.log(data.data)
+
+        //     // Remove the event listener after receiving the response
+        // });
+
+
+
+
+        toggleThemeButton.addEventListener("click", () => {
+            const isLightMode = document.body.classList.toggle("light_mode");
+            toggleThemeButton.innerText = isLightMode ? "dark_mode" : "light_mode";
+        });
+
+        deleteChatButton.addEventListener("click", () => {
+            if (confirm("Are you sure you want to delete all the chats?")) {
+                chatContainer.innerHTML = ''; // Clear the chat container
+                document.getElementById('body').classList.remove('hide-header')
+            }
+        });
+
+        suggestions.forEach(suggestion => {
+            suggestion.addEventListener("click", () => {
+                userMessage = suggestion.querySelector(".text").innerText;
+                form.querySelector(".typing-input").value = userMessage;
+                form.dispatchEvent(new Event("submit"));
+            });
+        });
+
+
+        function copyMessage(e) {
+            // Get the ID of the clicked button or element
+            const elementId = e.target.getAttribute('ref')
+
+            // Use the ID to fetch the text from the related element
+            const translatedText = document.getElementById(elementId).innerText;
+
+            // Check if there is text to copy
+            if (translatedText) {
+                navigator.clipboard.writeText(translatedText)
+            } else {
+                console.log('No text to copy')
+            }
+        }
+
+
+
+        function translateMessage() {
+            const userInput = document.getElementById('userInput').value;
+            const lang = document.getElementById('languageSelect').value;
+
+            // Emit message to the server for translation
+            socket.emit('translate_message', { message: userInput, lang: lang });
+        }
+
+
+        // socket.on('translation_result', function (data) {
+        //     document.getElementById('translatedResponse').innerText = `Translated: ${data.translated_text}`;
+        // });
+
+
+
+
+        const inlineLoaderHTML = '<span class="loader" id="inline-translation-loader"></span> <span id="translating-text">Translating...</span>';
+        let ref_id = ''
+        const langSelect = (e) => {
+    ref_id = e.target.getAttribute('ref');
+    const textElem = document.getElementById(ref_id);
+    
+    // Don't translate if English is selected (shouldn't happen due to disabled, but safety check)
+    if (!e.target.value) return;
+
+    // Remove any previous loader or translation if present
+    const prevLoader = textElem.parentNode.querySelector('.translation-loader-container');
+    const prevTranslated = textElem.parentNode.querySelector('.translated-text');
+    if (prevLoader) prevLoader.remove();
+    if (prevTranslated) prevTranslated.remove();
+
+    // Wrap original text if not already wrapped
+    if (!textElem.classList.contains('original-text')) {
+        textElem.className = 'text original-text';
+        const container = document.createElement('div');
+        container.className = 'message-text-container';
+        textElem.parentNode.insertBefore(container, textElem);
+        container.appendChild(textElem);
+    }
+
+    // Add loader in a container
+    const loaderContainer = document.createElement('div');
+    loaderContainer.className = 'translation-loader-container';
+    loaderContainer.innerHTML = '<span class="loader" id="inline-translation-loader"></span> <span id="translating-text">Translating...</span>';
+    
+    textElem.parentNode.appendChild(loaderContainer);
+
+    const userInput = textElem.innerText;
+    const lang = e.target.value;
+    socket.emit('translate_message', { message: userInput, lang: lang });
+}
+socket.on('translation_result', function (data) {
+    // Remove loader container
+    const loaderContainer = document.querySelector('.translation-loader-container');
+    if (loaderContainer) loaderContainer.remove();
+
+    // Find the text container and add translated text
+    const textElem = document.getElementById(ref_id);
+    const container = textElem.parentNode;
+    
+    // Create translated text element
+    const translatedElem = document.createElement('div');
+    translatedElem.className = 'translated-text';
+    translatedElem.textContent = data.translated_text;
+    
+    container.appendChild(translatedElem);
+});
+
+
+    </script>
+
+
+
+
+
+
+</body>
+
+</html>

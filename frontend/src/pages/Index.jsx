@@ -55,6 +55,12 @@ const Index = () => {
               >
                 Sign Up
               </Link>
+              <Link
+                to="/chat"
+                className="px-8 py-3 bg-white/10 text-white rounded-lg hover:bg-white/20 transform transition-all duration-300 hover:scale-105"
+              >
+                Chat Bot
+              </Link>
             </div>
           ) : (
             <div className="mt-8 flex flex-col items-center gap-4">
